@@ -4,6 +4,6 @@ Copyright 2026 the evmatch authors.
 This product includes software from PyMatching
 (https://github.com/oscarhiggott/PyMatching), Copyright 2022 PyMatching
 Contributors, licensed under the Apache License, Version 2.0. The sparse
-blossom core is vendored unmodified under src/evmatch/_vendor/pymatching;
-parts of src/evmatch/_native/decoder.cc are adapted from PyMatching's
+blossom core is vendored unmodified under csrc/vendor/pymatching; parts of
+csrc/decoder.cc are adapted from PyMatching's
 pymatching/sparse_blossom/driver/mwpm_decoding.cc.

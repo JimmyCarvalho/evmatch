@@ -1,7 +1,7 @@
 // Evidence-conditioned correlated matching on top of PyMatching's sparse blossom.
 //
 // The matching core (flooder, matcher, search) is PyMatching v2.4.0, vendored
-// unmodified under src/surfdec/_vendor (Apache License 2.0). The functions in
+// unmodified under csrc/vendor (Apache License 2.0). The functions in
 // the "adapted from PyMatching" block below are adapted from
 // pymatching/sparse_blossom/driver/mwpm_decoding.cc (Apache License 2.0).
 //

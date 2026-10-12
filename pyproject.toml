@@ -9,7 +9,7 @@ description = "Evidence-conditioned correlated matching: a sinter-compatible sur
 readme = "README.md"
 requires-python = ">=3.10"
 license = "Apache-2.0"
-license-files = ["LICENSE", "NOTICE", "src/evmatch/_vendor/pymatching/LICENSE"]
+license-files = ["LICENSE", "NOTICE"]
 dependencies = ["numpy", "stim>=1.13", "sinter>=1.13"]
 keywords = ["quantum error correction", "surface code", "decoder", "matching", "stim", "sinter"]
 classifiers = [
@@ -28,9 +28,6 @@ Homepage = "https://github.com/JimmyCarvalho/evmatch"
 [tool.setuptools.packages.find]
 where = ["src"]
 
-[tool.setuptools.exclude-package-data]
-"*" = ["*.cc", "*.h", "*.inl"]
-
 [tool.pytest.ini_options]
-pythonpath = ["src", "bench"]
+pythonpath = ["bench"]
 testpaths = ["tests"]

@@ -21,15 +21,12 @@ import json
 import math
 import multiprocessing as mp
 import os
-import sys
 import time
 
 import numpy as np
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-
-from evmatch.circuits import surface_code_si1000  # noqa: E402
-from decoders import all_decoders  # noqa: E402
+from decoders import all_decoders
+from evmatch.circuits import surface_code_si1000
 
 
 def _binom_two_sided_p(k: int, n: int) -> float:

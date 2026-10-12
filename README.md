@@ -38,7 +38,7 @@ discussed in [docs/prior_art_evidence.md](docs/prior_art_evidence.md).
 
 Rotated surface-code memory (Z basis, d rounds) under SI1000 noise
 (Gidney, Newman & McEwen 2022). The circuit is Stim's `rotated_memory_z` with
-each CX compiled to H·CZ·H; see [`evmatch/circuits.py`](src/evmatch/circuits.py).
+each CX compiled to H·CZ·H; see [`src/evmatch/circuits.py`](src/evmatch/circuits.py).
 
 **Paired comparison against correlated PyMatching.** Both decoders decode the
 same shots. The ±2σ intervals come from the discordant shots (McNemar).

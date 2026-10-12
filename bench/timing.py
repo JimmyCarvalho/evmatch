@@ -12,16 +12,12 @@ from __future__ import annotations
 
 import argparse
 import csv
-import os
-import sys
 import time
 
 import numpy as np
 
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "src"))
-
-from evmatch.circuits import surface_code_si1000  # noqa: E402
-from decoders import all_decoders  # noqa: E402
+from decoders import all_decoders
+from evmatch.circuits import surface_code_si1000
 
 
 def time_decoder(decoder, dem, dets_packed, obs_packed, repeats: int):

@@ -4,8 +4,8 @@ import sys
 from pybind11.setup_helpers import Pybind11Extension, build_ext
 from setuptools import setup
 
-vendor = "src/evmatch/_vendor"
-sources = ["src/evmatch/_native/decoder.cc"] + sorted(
+vendor = "csrc/vendor"
+sources = ["csrc/decoder.cc"] + sorted(
     f for f in glob.glob(f"{vendor}/pymatching/sparse_blossom/**/*.cc", recursive=True)
 )
 

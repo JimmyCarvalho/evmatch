@@ -1,3 +1,2 @@
 include LICENSE NOTICE README.md
-include src/evmatch/_native/*.cc
-recursive-include src/evmatch/_vendor *.h *.inl *.cc LICENSE *.txt
+recursive-include csrc *.h *.inl *.cc LICENSE *.txt
