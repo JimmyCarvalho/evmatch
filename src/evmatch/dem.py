@@ -1,11 +1,10 @@
-"""Detector error model -> hypergraph / matching-graph structures."""
+"""Detector error model -> error mechanisms and matching-graph edges."""
 
 from __future__ import annotations
 
 from dataclasses import dataclass
 
 import numpy as np
-import scipy.sparse as sp
 import stim
 
 
@@ -22,10 +21,6 @@ class DemGraph:
     e_nodes: np.ndarray  # (num_e, 2) int64
     e_obs: np.ndarray  # (num_e,) uint64
     e_prior: np.ndarray  # (num_e,) independent combination of mechanisms containing e
-    H: sp.csc_matrix  # detectors x hyperedges
-    E: sp.csc_matrix  # detectors x edges
-    EO: sp.csc_matrix  # observables x edges
-    H2E: sp.csc_matrix  # edges x hyperedges (1 if the edge is in the decomposition)
     edge_index: dict[tuple[int, int], int]
 
 
@@ -123,34 +118,7 @@ def build(dem: stim.DetectorErrorModel, decomposition: str = "fewest") -> DemGra
         h_prior.append(prior)
         h_edges.append(tuple(edge_id(ds, m) for ds, m in comps))
 
-    nh, ne = len(h_dets), len(e_nodes)
-    rows, cols = [], []
-    for k, ds in enumerate(h_dets):
-        rows += list(ds)
-        cols += [k] * len(ds)
-    H = sp.csc_matrix((np.ones(len(rows), np.uint8), (rows, cols)), shape=(dem.num_detectors, nh))
-    rows, cols = [], []
-    for k, (u, v) in enumerate(e_nodes):
-        rows.append(u)
-        cols.append(k)
-        if v >= 0:
-            rows.append(v)
-            cols.append(k)
-    E = sp.csc_matrix((np.ones(len(rows), np.uint8), (rows, cols)), shape=(dem.num_detectors, ne))
-    rows, cols = [], []
-    for k, m in enumerate(e_obs):
-        for o in range(dem.num_observables):
-            if (m >> o) & 1:
-                rows.append(o)
-                cols.append(k)
-    EO = sp.csc_matrix((np.ones(len(rows), np.uint8), (rows, cols)), shape=(dem.num_observables, ne))
-    rows, cols = [], []
-    for k, es in enumerate(h_edges):
-        for e in es:
-            rows.append(e)
-            cols.append(k)
-    H2E = sp.csc_matrix((np.ones(len(rows), np.float64), (rows, cols)), shape=(ne, nh))
-
+    ne = len(e_nodes)
     h_prior_arr = np.array(h_prior)
     # Independent combination of all mechanisms containing each edge.
     e_prior = np.zeros(ne)
@@ -161,6 +129,6 @@ def build(dem: stim.DetectorErrorModel, decomposition: str = "fewest") -> DemGra
     return DemGraph(
         num_dets=dem.num_detectors, num_obs=dem.num_observables,
         h_dets=h_dets, h_obs=np.array(h_obs, dtype=np.uint64), h_prior=h_prior_arr, h_edges=h_edges,
-        e_nodes=np.array(e_nodes, dtype=np.int64), e_obs=np.array(e_obs, dtype=np.uint64), e_prior=e_prior,
-        H=H, E=E, EO=EO, H2E=H2E, edge_index=edge_index,
+        e_nodes=np.array(e_nodes, dtype=np.int64).reshape(-1, 2), e_obs=np.array(e_obs, dtype=np.uint64),
+        e_prior=e_prior, edge_index=edge_index,
     )

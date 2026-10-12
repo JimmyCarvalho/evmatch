@@ -1,4 +1,4 @@
-"""Sinter adapter for the reference belief-matching implementation.
+"""Sinter adapter for the reference belief-matching implementation (benchmark only).
 
 `beliefmatching.BeliefMatchingSinterDecoder` only implements sinter's file
 interface; this exposes `compile_decoder_for_dem` so it can be timed on the

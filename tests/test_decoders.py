@@ -1,8 +1,8 @@
 import numpy as np
 import pytest
 
-from surfdec.circuits import surface_code_si1000
-from surfdec.registry import all_decoders
+from evmatch.circuits import surface_code_si1000
+from decoders import all_decoders
 
 
 @pytest.mark.parametrize("d", [3, 5, 7])

@@ -1,4 +1,4 @@
-"""Slow Python prototypes, used only to measure logical error rates of ideas.
+"""Slow Python prototypes (development only, not part of the package), used only to measure logical error rates of ideas.
 
 Each shot rebuilds a pymatching graph with shot-specific weights, so these
 are 100-1000x slower than PyMatching; speed is the job of the native code.
@@ -20,10 +20,38 @@ from dataclasses import dataclass
 
 import numpy as np
 import pymatching
+import scipy.sparse as sp
 import sinter
 import stim
 
-from surfdec.dem import DemGraph, build
+from evmatch.dem import DemGraph, build
+
+
+def matrices(g: DemGraph):
+    """Sparse matrices of the hypergraph and its decomposition."""
+    nd, nh, ne = g.num_dets, len(g.h_dets), len(g.e_nodes)
+    rows = [d for ds in g.h_dets for d in ds]
+    cols = [k for k, ds in enumerate(g.h_dets) for _ in ds]
+    H = sp.csc_matrix((np.ones(len(rows), np.uint8), (rows, cols)), shape=(nd, nh))
+    rows, cols = [], []
+    for k, (u, v) in enumerate(g.e_nodes):
+        rows.append(u)
+        cols.append(k)
+        if v >= 0:
+            rows.append(v)
+            cols.append(k)
+    E = sp.csc_matrix((np.ones(len(rows), np.uint8), (rows, cols)), shape=(nd, ne))
+    rows, cols = [], []
+    for k, m in enumerate(g.e_obs):
+        for o in range(g.num_obs):
+            if (int(m) >> o) & 1:
+                rows.append(o)
+                cols.append(k)
+    EO = sp.csc_matrix((np.ones(len(rows), np.uint8), (rows, cols)), shape=(g.num_obs, ne))
+    rows = [e for es in g.h_edges for e in es]
+    cols = [k for k, es in enumerate(g.h_edges) for _ in es]
+    H2E = sp.csc_matrix((np.ones(len(rows), np.float64), (rows, cols)), shape=(ne, nh))
+    return H, E, EO, H2E
 
 
 @dataclass(frozen=True)
@@ -50,12 +78,13 @@ def _w(p):
 class _Compiled(sinter.CompiledDecoder):
     def __init__(self, g: DemGraph, cfg: ProtoConfig):
         self.g, self.cfg = g, cfg
+        self.H, self.E, self.EO, self.H2E = matrices(g)
         self.bpd = None
         if cfg.bp_iters > 0:
             from ldpc import BpDecoder
 
             self.bpd = BpDecoder(
-                g.H, error_channel=list(g.h_prior), max_iter=cfg.bp_iters, bp_method=cfg.bp_method,
+                self.H, error_channel=list(g.h_prior), max_iter=cfg.bp_iters, bp_method=cfg.bp_method,
                 schedule=cfg.bp_schedule, ms_scaling_factor=cfg.ms_scaling,
             )
         # Multi-component mechanisms: for each edge, (other edge, mechanism) pairs.
@@ -74,7 +103,7 @@ class _Compiled(sinter.CompiledDecoder):
     def _matching(self, w):
         g = self.g
         return pymatching.Matching.from_check_matrix(
-            g.E, weights=w, faults_matrix=g.EO, use_virtual_boundary_node=True
+            self.E, weights=w, faults_matrix=self.EO, use_virtual_boundary_node=True
         )
 
     def _edge_probs(self, post_h, mask=None):
@@ -84,7 +113,7 @@ class _Compiled(sinter.CompiledDecoder):
         ph = post_h if mask is None else post_h * mask
         # log(1 - 2p) trick: P(odd) = (1 - prod(1 - 2 p_i)) / 2
         lg = np.log(np.clip(1 - 2 * ph, 1e-300, None))
-        acc = g.H2E @ lg
+        acc = self.H2E @ lg
         q = (1 - np.exp(acc)) / 2
         return q
 

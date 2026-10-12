@@ -13,6 +13,7 @@
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
+#include <bit>
 #include <cmath>
 #include <cstdint>
 #include <memory>
@@ -276,7 +277,7 @@ class Decoder {
             for (size_t b = 0; b < det_bytes; b++) {
                 uint8_t byte = in(s, b);
                 while (byte) {
-                    int bit = __builtin_ctz(byte);
+                    int bit = std::countr_zero(byte);
                     size_t d = b * 8 + bit;
                     if (d < num_detectors)
                         dets.push_back(d);
