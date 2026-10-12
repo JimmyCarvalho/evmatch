@@ -12,8 +12,8 @@
 Matching decoders turn each error mechanism of a circuit-level detector error
 model into graph edges and give every edge the mechanism's full probability,
 even when the syndrome rules the mechanism out. We show that a local,
-syndrome-dependent correction to the edge weights closes the gap between
-correlated minimum-weight perfect matching and belief-matching. The rule is that a multi-edge mechanism contributes
+syndrome-dependent correction to the edge weights brings correlated
+minimum-weight perfect matching to, or beyond, the accuracy of belief-matching. The rule is that a multi-edge mechanism contributes
 probability to its edges only if each of its edges touches a detection event.
 It costs $O(\#\text{detection events})$ per shot, and we combine it with the
 standard two-pass correlated reweighting. For the rotated surface-code memory
@@ -218,7 +218,11 @@ differences is significant ($p>0.15$). At $d=9$, $p=0.3\%$, evmatch made 70
 errors against 110 for belief-matching ($2.5\times10^4$ shots, $p=9\times10^{-6}$);
 there the reference implementation was also worse than correlated matching
 (85 errors), with or without its shortcut of returning BP's solution when BP
-converges, and with 30 instead of 20 BP iterations (104 errors). At $d=9$, $p=0.5\%$, the counts were 937 vs 971 ($p=0.23$).
+converges, with 30 instead of 20 BP iterations (104 errors), and in an
+independent implementation of belief-matching with our decomposition and
+log-odds weights (107 errors; 972 at $p=0.5\%$). Belief-matching with
+parallel BP therefore does not dominate correlated matching on this circuit,
+while evmatch matches or beats both at every point we measured. At $d=9$, $p=0.5\%$, the counts were 937 vs 971 ($p=0.23$).
 
 \section{Related work}
 

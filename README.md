@@ -78,7 +78,10 @@ At d = 9, p = 0.3%, the reference belief-matching was worse than correlated
 PyMatching as well (85 errors on the same shots). The package's shortcut of
 returning BP's own solution when BP converges is not the cause: disabling it
 gives the same 110 errors, and 30 BP iterations (as in the belief-matching
-paper) give 104. We did not tune BP further.
+paper) give 104. An independent implementation (`proto-bm20` in
+`bench/proto.py`: one decomposition per symptom, log-odds weights) gives 107
+here and 972 at p = 0.5%, so this is a property of belief-matching with
+parallel BP on this circuit, not of the package.
 
 **Where the gain comes from** (paired, d = 9, p = 0.3%, 400k shots):
 

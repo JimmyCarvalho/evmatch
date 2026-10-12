@@ -1,0 +1,12 @@
+arXiv submission metadata (paste into the arXiv form)
+
+Title: Evidence-conditioned correlated matching for surface codes under circuit-level noise
+Authors: TODO (decide; see the TODO in evmatch.tex)
+Primary category: quant-ph
+Comments: 4 pages, 2 figures, 4 tables. Code and data: https://github.com/JimmyCarvalho/evmatch
+License: CC BY 4.0 (suggested)
+
+Abstract:
+Matching decoders turn each error mechanism of a circuit-level detector error model into graph edges and give every edge the mechanism's full probability, even when the syndrome rules the mechanism out. We show that a local, syndrome-dependent correction to the edge weights brings correlated minimum-weight perfect matching to, or beyond, the accuracy of belief-matching. The rule is that a multi-edge mechanism contributes probability to its edges only if each of its edges touches a detection event. It costs O(#detection events) per shot, and we combine it with the standard two-pass correlated reweighting. For the rotated surface-code memory under SI1000 noise at distances 5, 7 and 9 and physical error rates 0.2-0.5%, the resulting decoder makes 7-17% fewer logical errors than the correlated mode of PyMatching 2. The advantage grows with distance. In paired tests it is statistically indistinguishable from belief-matching at d=5,7 and better at d=9, while running at 4.6-7.2x the time of uncorrelated PyMatching (1.7-2.2x its correlated mode). The decoder is open source, sinter-compatible and built on PyMatching's sparse blossom.
+
+Upload: paper/arxiv_evmatch.tar.gz (built by paper/make_arxiv.sh); compiles with pdflatex + revtex4-2.

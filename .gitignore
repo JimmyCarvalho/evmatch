@@ -8,3 +8,4 @@ deliverables/
 paper/*.aux
 paper/*.log
 paper/*.out
+paper/arxiv_evmatch.tar.gz
