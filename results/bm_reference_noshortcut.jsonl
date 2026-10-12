@@ -1,0 +1,3 @@
+{"decoder": "evmatch", "d": 9, "p": 0.003, "shots": 25000, "errors": 70, "ler": 0.0028, "us_per_shot": 163.8187805600228, "better_than_ref": 0, "worse_than_ref": 0, "mcnemar_p": 1.0}
+{"decoder": "pymatching-correlated", "d": 9, "p": 0.003, "shots": 25000, "errors": 85, "ler": 0.0034, "us_per_shot": 111.08111407998877, "better_than_ref": 13, "worse_than_ref": 28, "mcnemar_p": 0.027533155829587517}
+{"decoder": "beliefmatching-noshortcut", "d": 9, "p": 0.003, "shots": 25000, "errors": 110, "ler": 0.0044, "us_per_shot": 54803.098314920004, "better_than_ref": 20, "worse_than_ref": 60, "mcnemar_p": 8.580559867049235e-06}

@@ -72,10 +72,13 @@ with 20 BP iterations, compared on the same shots.
 | 7 | 0.3% | 50,000 | 290 | 309 | 0.24 |
 | 7 | 0.5% | 50,000 | 2148 | 2180 | 0.41 |
 | 9 | 0.3% | 25,000 | 70 | 110 | 9e-6 |
+| 9 | 0.5% | 25,000 | 937 | 971 | 0.23 |
 
-At d = 9 the reference belief-matching was worse than correlated PyMatching.
-This is under investigation: its shortcut of returning BP's own solution when
-BP converges is a suspect.
+At d = 9, p = 0.3%, the reference belief-matching was worse than correlated
+PyMatching as well (85 errors on the same shots). The package's shortcut of
+returning BP's own solution when BP converges is not the cause: disabling it
+gives the same 110 errors, and 30 BP iterations (as in the belief-matching
+paper) give 104. We did not tune BP further.
 
 **Where the gain comes from** (paired, d = 9, p = 0.3%, 400k shots):
 

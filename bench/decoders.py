@@ -30,6 +30,7 @@ def all_decoders() -> dict[str, sinter.Decoder]:
 
         out["beliefmatching"] = BeliefMatchingDecoder()
         out["beliefmatching-noshortcut"] = BeliefMatchingDecoder(shortcut=False)
+        out["beliefmatching-30"] = BeliefMatchingDecoder(max_bp_iters=30)
     except ImportError:
         pass
     try:

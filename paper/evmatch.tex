@@ -172,8 +172,9 @@ package (20 BP iterations), on identical shots, the error counts were
 and 290 vs 309 and 2148 vs 2180 at $d=7$ ($5\times10^4$ shots). None of these
 differences is significant ($p>0.15$). At $d=9$, $p=0.3\%$, evmatch made 70
 errors against 110 for belief-matching ($2.5\times10^4$ shots, $p=9\times10^{-6}$);
-there the reference implementation was also worse than correlated matching.
-% TODO: d=9 p=0.5% and the no-shortcut variant.
+there the reference implementation was also worse than correlated matching
+(85 errors), with or without its shortcut of returning BP's solution when BP
+converges, and with 30 instead of 20 BP iterations (104 errors). At $d=9$, $p=0.5\%$, the counts were 937 vs 971 ($p=0.23$).
 
 \section{Related work}
 
@@ -222,12 +223,12 @@ scripts that produce every number in this paper.
 \bibitem{delfosse2014decoding} N.~Delfosse and J.-P.~Tillich, A decoding algorithm for CSS codes using the X/Z correlations, arXiv:1401.6975 (2014).
 \bibitem{yuan2022modified} Y.~Yuan and C.-C.~Lu, A modified MWPM decoding algorithm for quantum surface codes over depolarizing channels, arXiv:2202.11239 (2022).
 \bibitem{google2025below} Google Quantum AI and collaborators, Quantum error correction below the surface code threshold, Nature \textbf{638}, 920 (2025).
-\bibitem{grans2023improved} L.~Grans-Samuelsson \emph{et al.}, arXiv:2310.12981 (2023). % TODO verify title
-\bibitem{wang2023dgr} Wang \emph{et al.}, arXiv:2311.16214 (2023). % TODO verify title/authors
+\bibitem{grans2023improved} L.~Grans-Samuelsson \emph{et al.}, Improved pairwise measurement-based surface code, Quantum \textbf{8}, 1429 (2024), arXiv:2310.12981.
+\bibitem{wang2023dgr} H.~Wang, P.~Liu, Y.~Liu, J.~Gu, J.~Baker, F.~T.~Chong and S.~Han, DGR: Tackling drifted and correlated noise in quantum error correction via decoding graph re-weighting, arXiv:2311.16214 (2023).
 \bibitem{jones2024improved} C.~Jones, Improved accuracy for decoding surface codes with matching synthesis, arXiv:2408.12135 (2024).
 \bibitem{bausch2024learning} J.~Bausch \emph{et al.}, Learning high-accuracy error decoding for quantum processors, Nature \textbf{635}, 834 (2024).
 \bibitem{beni2025tesseract} L.~A.~Beni, O.~Higgott and N.~Shutty, Tesseract: a search-based decoder for quantum error correction, arXiv:2503.10988 (2025).
-\bibitem{toshio2025decoder} R.~Toshio \emph{et al.}, arXiv:2510.25222 (2025). % TODO verify title/authors
+\bibitem{toshio2025decoder} R.~Toshio, K.~Kishi, J.~Fujisaki, H.~Oshima, S.~Sato and K.~Fujii, Decoder switching: breaking the speed-accuracy tradeoff in real-time quantum error correction, arXiv:2510.25222 (2025).
 \end{thebibliography}
 
 \end{document}
