@@ -1,0 +1,62 @@
+--- d=5 p=0.005 shots=400000 wall=14s
+pymatching-correlated              LER=5.193e-02 ( 20773)       17.9 us/shot  better=    0 worse=    0  p=1
+pymatching                         LER=6.103e-02 ( 24410)        7.2 us/shot  better= 4513 worse= 8150  p=2.9e-232
+nat-match                          LER=5.989e-02 ( 23958)        8.5 us/shot  better= 5083 worse= 8268  p=9.4e-169
+nat-evidence                       LER=5.615e-02 ( 22459)       17.0 us/shot  better= 6105 worse= 7791  p=1.9e-46
+nat-evidence-correlated            LER=4.863e-02 ( 19450)       30.1 us/shot  better= 3762 worse= 2439  p=1e-63
+nat-evidence-both                  LER=4.852e-02 ( 19410)       31.2 us/shot  better= 4100 worse= 2737  p=2.3e-61
+--- d=5 p=0.003 shots=400000 wall=8s
+pymatching-correlated              LER=1.203e-02 (  4813)       10.0 us/shot  better=    0 worse=    0  p=1
+pymatching                         LER=1.559e-02 (  6238)        3.6 us/shot  better= 1092 worse= 2517  p=1.4e-127
+nat-match                          LER=1.525e-02 (  6099)        3.9 us/shot  better= 1214 worse= 2500  p=1e-100
+nat-evidence                       LER=1.395e-02 (  5578)        9.6 us/shot  better= 1486 worse= 2251  p=4.4e-36
+nat-evidence-correlated            LER=1.121e-02 (  4483)       17.6 us/shot  better=  895 worse=  565  p=5.3e-18
+nat-evidence-both                  LER=1.112e-02 (  4448)       16.8 us/shot  better=  977 worse=  612  p=4.7e-20
+--- d=7 p=0.005 shots=400000 wall=53s
+pymatching-correlated              LER=4.654e-02 ( 18615)       70.1 us/shot  better=    0 worse=    0  p=1
+pymatching                         LER=6.235e-02 ( 24939)       27.8 us/shot  better= 5550 worse=11874  p=0
+nat-match                          LER=6.163e-02 ( 24651)       30.6 us/shot  better= 5804 worse=11840  p=0
+nat-evidence                       LER=5.547e-02 ( 22186)       69.9 us/shot  better= 6705 worse=10276  p=1.8e-166
+nat-evidence-correlated            LER=4.322e-02 ( 17286)      128.8 us/shot  better= 4113 worse= 2784  p=6.7e-58
+nat-evidence-both                  LER=4.282e-02 ( 17127)      121.9 us/shot  better= 4762 worse= 3274  p=3.8e-62
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+                    ~~~~^^^^^^^^^^^^^^^
+  File "/home/user/qec-decoder/bench/paired.py", line 54, in _worker
+    compiled = decs[name].compile_decoder_for_dem(dem=dem)
+  File "/home/user/qec-decoder/bench/../src/surfdec/native.py", line 75, in compile_decoder_for_dem
+    dec = _native.Decoder(
+        **native_args(g), mode=MODES[self.mode], cap=self.cap, partners_only=self.partners_only
+    )
+TypeError: __init__(): incompatible constructor arguments. The following argument types are supported:
+    1. surfdec._native.Decoder(num_detectors: typing.SupportsInt | typing.SupportsIndex, num_observables: typing.SupportsInt | typing.SupportsIndex, edge_u: typing.Annotated[numpy.typing.ArrayLike, numpy.int64], edge_v: typing.Annotated[numpy.typing.ArrayLike, numpy.int64], edge_obs: typing.Annotated[numpy.typing.ArrayLike, numpy.uint64], q_full: typing.Annotated[numpy.typing.ArrayLike, numpy.float64], q_single: typing.Annotated[numpy.typing.ArrayLike, numpy.float64], mech_ptr: typing.Annotated[numpy.typing.ArrayLike, numpy.int64], mech_edges: typing.Annotated[numpy.typing.ArrayLike, numpy.int64], mech_p: typing.Annotated[numpy.typing.ArrayLike, numpy.float64], mode: typing.SupportsInt | typing.SupportsIndex, cap: typing.SupportsFloat | typing.SupportsIndex = 0.5, p_floor: typing.SupportsFloat | typing.SupportsIndex = 1e-09)
+
+Invoked with: kwargs: num_detectors=336, num_observables=1, edge_u=array([  0,   0,   0, ..., 331, 332, 333], shape=(1558,)), edge_v=array([  3,   4,  34, ..., 335, 335,  -1], shape=(1558,)), edge_obs=array([0, 0, 0, ..., 0, 0, 1], shape=(1558,), dtype=uint64), q_full=array([0.00738265, 0.00698832, 0.02368918, ..., 0.01597031, 0.01635746,
+       0.01597031], shape=(1558,)), q_single=array([0.00738265, 0.00698832, 0.02368918, ..., 0.01597031, 0.01635746,
+       0.01597031], shape=(1558,)), mech_ptr=array([   0,    2,    4, ..., 8136, 8138, 8140], shape=(3914,)), mech_edges=array([  10,   11,   12, ..., 1548, 1343, 1550], shape=(8140,)), mech_p=array([0.0014    , 0.00040048, 0.00179936, ..., 0.00020028, 0.00179936,
+       0.00179936], shape=(3913,)), mode=0, cap=0.5, partners_only=False
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/user/qec-decoder/bench/paired.py", line 121, in <module>
+    main()
+    ~~~~^^
+  File "/home/user/qec-decoder/bench/paired.py", line 105, in main
+    rep = run(args.decoders, d, p, args.shots, args.chunk, args.seed, args.workers)
+  File "/home/user/qec-decoder/bench/paired.py", line 71, in run
+    for f, s in pool.imap_unordered(_worker, jobs):
+                ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.13/multiprocessing/pool.py", line 873, in next
+    raise value
+TypeError: __init__(): incompatible constructor arguments. The following argument types are supported:
+    1. surfdec._native.Decoder(num_detectors: typing.SupportsInt | typing.SupportsIndex, num_observables: typing.SupportsInt | typing.SupportsIndex, edge_u: typing.Annotated[numpy.typing.ArrayLike, numpy.int64], edge_v: typing.Annotated[numpy.typing.ArrayLike, numpy.int64], edge_obs: typing.Annotated[numpy.typing.ArrayLike, numpy.uint64], q_full: typing.Annotated[numpy.typing.ArrayLike, numpy.float64], q_single: typing.Annotated[numpy.typing.ArrayLike, numpy.float64], mech_ptr: typing.Annotated[numpy.typing.ArrayLike, numpy.int64], mech_edges: typing.Annotated[numpy.typing.ArrayLike, numpy.int64], mech_p: typing.Annotated[numpy.typing.ArrayLike, numpy.float64], mode: typing.SupportsInt | typing.SupportsIndex, cap: typing.SupportsFloat | typing.SupportsIndex = 0.5, p_floor: typing.SupportsFloat | typing.SupportsIndex = 1e-09)
+
+Invoked with: kwargs: num_detectors=336, num_observables=1, edge_u=array([  0,   0,   0, ..., 331, 332, 333], shape=(1558,)), edge_v=array([  3,   4,  34, ..., 335, 335,  -1], shape=(1558,)), edge_obs=array([0, 0, 0, ..., 0, 0, 1], shape=(1558,), dtype=uint64), q_full=array([0.00738265, 0.00698832, 0.02368918, ..., 0.01597031, 0.01635746,
+       0.01597031], shape=(1558,)), q_single=array([0.00738265, 0.00698832, 0.02368918, ..., 0.01597031, 0.01635746,
+       0.01597031], shape=(1558,)), mech_ptr=array([   0,    2,    4, ..., 8136, 8138, 8140], shape=(3914,)), mech_edges=array([  10,   11,   12, ..., 1548, 1343, 1550], shape=(8140,)), mech_p=array([0.0014    , 0.00040048, 0.00179936, ..., 0.00020028, 0.00179936,
+       0.00179936], shape=(3913,)), mode=0, cap=0.5, partners_only=False

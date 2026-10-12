@@ -1,0 +1,8 @@
+--- d=5 p=0.005 shots=40000 wall=180s
+pymatching-correlated              LER=5.075e-02 (  2030)       20.5 us/shot  better=    0 worse=    0  p=1
+proto-corr-neg-touch               LER=4.765e-02 (  1906)     3121.3 us/shot  better=  365 worse=  241  p=5.4e-07
+proto-neg1                         LER=5.572e-02 (  2229)     1661.8 us/shot  better=  608 worse=  807  p=1.3e-07
+proto-neg-both                     LER=4.815e-02 (  1926)     3278.8 us/shot  better=  417 worse=  313  p=0.00013
+proto-corr-neg-a10                 LER=4.785e-02 (  1914)     3092.4 us/shot  better=  339 worse=  223  p=1.1e-06
+proto-corr-neg-a30                 LER=4.793e-02 (  1917)     3225.9 us/shot  better=  294 worse=  181  p=2.4e-07
+proto-corr-neg-all                 LER=4.855e-02 (  1942)     3180.0 us/shot  better=  350 worse=  262  p=0.00043

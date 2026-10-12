@@ -1,0 +1,7 @@
+{"decoder": "pymatching-correlated", "d": 5, "p": 0.005, "shots": 40000, "errors": 2030, "ler": 0.05075, "us_per_shot": 20.509388699963438, "better_than_ref": 0, "worse_than_ref": 0, "mcnemar_p": 1.0}
+{"decoder": "proto-corr-neg-touch", "d": 5, "p": 0.005, "shots": 40000, "errors": 1906, "ler": 0.04765, "us_per_shot": 3121.268734700004, "better_than_ref": 365, "worse_than_ref": 241, "mcnemar_p": 5.35182450209674e-07}
+{"decoder": "proto-neg1", "d": 5, "p": 0.005, "shots": 40000, "errors": 2229, "ler": 0.055725, "us_per_shot": 1661.7778351500078, "better_than_ref": 608, "worse_than_ref": 807, "mcnemar_p": 1.3495438358352877e-07}
+{"decoder": "proto-neg-both", "d": 5, "p": 0.005, "shots": 40000, "errors": 1926, "ler": 0.04815, "us_per_shot": 3278.761458575002, "better_than_ref": 417, "worse_than_ref": 313, "mcnemar_p": 0.00013446544124413686}
+{"decoder": "proto-corr-neg-a10", "d": 5, "p": 0.005, "shots": 40000, "errors": 1914, "ler": 0.04785, "us_per_shot": 3092.408340025031, "better_than_ref": 339, "worse_than_ref": 223, "mcnemar_p": 1.1305308772296045e-06}
+{"decoder": "proto-corr-neg-a30", "d": 5, "p": 0.005, "shots": 40000, "errors": 1917, "ler": 0.047925, "us_per_shot": 3225.9414726250156, "better_than_ref": 294, "worse_than_ref": 181, "mcnemar_p": 2.4394276101559346e-07}
+{"decoder": "proto-corr-neg-all", "d": 5, "p": 0.005, "shots": 40000, "errors": 1942, "ler": 0.04855, "us_per_shot": 3180.0139237000053, "better_than_ref": 350, "worse_than_ref": 262, "mcnemar_p": 0.0004279003791451324}

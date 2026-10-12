@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=64", "pybind11>=2.12"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "surfdec"
+version = "0.0.1"
+description = "Evidence-conditioned correlated matching for surface-code circuit noise (sinter-compatible)"
+requires-python = ">=3.10"
+dependencies = ["numpy", "scipy", "stim", "sinter>=1.14"]
+license = {text = "Apache-2.0"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,1 @@
+Vendored from https://github.com/oscarhiggott/PyMatching at commit 6f63b2b9474ba0fa7e511fe52bffdce858a06984 (v2.4.0), Apache License 2.0 (see LICENSE). Only the sparse blossom core (flooder, matcher, search, tracker) is included; test and perf files are omitted. Unmodified.

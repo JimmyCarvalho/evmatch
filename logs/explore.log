@@ -1,0 +1,34 @@
+--- d=5 p=0.003 shots=40000 wall=84s
+pymatching                         LER=1.582e-02 (   633)        5.2 us/shot  better=    0 worse=    0  p=1
+proto-mwpm-first                   LER=1.523e-02 (   609)      967.3 us/shot  better=   43 worse=   19  p=0.0032
+proto-mwpm                         LER=1.525e-02 (   610)      934.4 us/shot  better=   46 worse=   23  p=0.0076
+proto-mwpm-direct                  LER=1.530e-02 (   612)     1035.2 us/shot  better=   93 worse=   72  p=0.12
+pymatching-correlated              LER=1.200e-02 (   480)       14.9 us/shot  better=  266 worse=  113  p=2.4e-15
+proto-corr-first                   LER=1.202e-02 (   481)     2574.8 us/shot  better=  268 worse=  116  p=5.8e-15
+proto-corr                         LER=1.205e-02 (   482)     2584.9 us/shot  better=  268 worse=  117  p=9.5e-15
+--- d=5 p=0.005 shots=40000 wall=95s
+pymatching                         LER=5.942e-02 (  2377)        9.2 us/shot  better=    0 worse=    0  p=1
+proto-mwpm-first                   LER=5.928e-02 (  2371)     1026.3 us/shot  better=  128 worse=  122  p=0.75
+proto-mwpm                         LER=5.922e-02 (  2369)      991.5 us/shot  better=  137 worse=  129  p=0.67
+proto-mwpm-direct                  LER=5.980e-02 (  2392)     1082.3 us/shot  better=  304 worse=  319  p=0.57
+pymatching-correlated              LER=5.075e-02 (  2030)       27.4 us/shot  better=  837 worse=  490  p=1.3e-21
+proto-corr-first                   LER=5.008e-02 (  2003)     2970.1 us/shot  better=  874 worse=  500  p=4.3e-24
+proto-corr                         LER=5.010e-02 (  2004)     2872.6 us/shot  better=  881 worse=  508  p=1e-23
+--- d=5 p=0.003 shots=40000 wall=274s
+pymatching-correlated              LER=1.200e-02 (   480)       12.1 us/shot  better=    0 worse=    0  p=1
+beliefmatching                     LER=1.125e-02 (   450)     4028.5 us/shot  better=  135 worse=  105  p=0.061
+proto-bm20                         LER=1.130e-02 (   452)     4182.1 us/shot  better=  137 worse=  109  p=0.085
+proto-bm3                          LER=1.205e-02 (   482)     2483.3 us/shot  better=  143 worse=  145  p=0.95
+proto-bm20-corr                    LER=1.135e-02 (   454)     4704.9 us/shot  better=  133 worse=  107  p=0.11
+proto-bm3-corr                     LER=1.218e-02 (   487)     4071.9 us/shot  better=  138 worse=  145  p=0.72
+proto-corr-neg-touch               LER=1.148e-02 (   459)     3813.0 us/shot  better=   90 worse=   69  p=0.11
+proto-corr-neg-matched             LER=1.180e-02 (   472)     3612.9 us/shot  better=   83 worse=   75  p=0.58
+--- d=5 p=0.005 shots=40000 wall=384s
+pymatching-correlated              LER=5.075e-02 (  2030)       26.0 us/shot  better=    0 worse=    0  p=1
+beliefmatching                     LER=4.695e-02 (  1878)     6949.7 us/shot  better=  514 worse=  362  p=3.2e-07
+proto-bm20                         LER=4.705e-02 (  1882)     6927.2 us/shot  better=  520 worse=  372  p=8.1e-07
+proto-bm3                          LER=5.058e-02 (  2023)     2660.3 us/shot  better=  565 worse=  558  p=0.86
+proto-bm20-corr                    LER=4.713e-02 (  1885)     8401.4 us/shot  better=  494 worse=  349  p=6.6e-07
+proto-bm3-corr                     LER=5.015e-02 (  2006)     4662.8 us/shot  better=  564 worse=  540  p=0.49
+proto-corr-neg-touch               LER=4.765e-02 (  1906)     4337.5 us/shot  better=  365 worse=  241  p=5.4e-07
+proto-corr-neg-matched             LER=4.925e-02 (  1970)     3907.2 us/shot  better=  354 worse=  294  p=0.02
