@@ -1,0 +1,47 @@
+name: release
+# Push a branch release/vX.Y.Z (or a tag vX.Y.Z): builds wheels and the sdist,
+# creates the tag and a GitHub release with them attached, and uploads to PyPI
+# when the repository variable PYPI_PUBLISH is "true" (trusted publisher on
+# pypi.org: owner JimmyCarvalho, repository evmatch, workflow release.yml,
+# environment pypi).
+on:
+  push:
+    branches: ["release/**"]
+    tags: ["v*"]
+jobs:
+  build:
+    uses: ./.github/workflows/wheels.yml
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - id: version
+        run: |
+          ref="${GITHUB_REF_NAME}"
+          echo "tag=${ref#release/}" >> "$GITHUB_OUTPUT"
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          target_commitish: ${{ github.sha }}
+          name: evmatch ${{ steps.version.outputs.tag }}
+          files: dist/*
+          generate_release_notes: true
+  publish:
+    if: vars.PYPI_PUBLISH == 'true'
+    needs: build
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - uses: pypa/gh-action-pypi-publish@release/v1

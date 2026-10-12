@@ -177,11 +177,12 @@ including prototypes and dead ends, is in `bench/proto.py` and `logs/`.
 
 ## Releasing
 
-Pushing a tag `vX.Y.Z` builds the wheels and the sdist and attaches them to a
-GitHub release. To also upload to PyPI: register a trusted publisher on
-pypi.org (project `evmatch`, owner `JimmyCarvalho`, repository `evmatch`,
-workflow `wheels.yml`, environment `pypi`), set the repository variable
-`PYPI_PUBLISH` to `true`, and re-run the workflow for the tag.
+Pushing a branch `release/vX.Y.Z` (or a tag `vX.Y.Z`) builds the wheels and
+the sdist, creates the tag and attaches them to a GitHub release
+(`.github/workflows/release.yml`). To also upload to PyPI: register a trusted
+publisher on pypi.org (project `evmatch`, owner `JimmyCarvalho`, repository
+`evmatch`, workflow `release.yml`, environment `pypi`), set the repository
+variable `PYPI_PUBLISH` to `true`, and re-run the release workflow.
 
 ## License and credits
 
