@@ -1,0 +1,4 @@
+{"decoder": "pymatching-correlated", "d": 9, "p": 0.002, "shots": 2000000, "errors": 616, "ler": 0.000308, "us_per_shot": 49.797443371500044, "better_than_ref": 0, "worse_than_ref": 0, "mcnemar_p": 1.0}
+{"decoder": "evmatch", "d": 9, "p": 0.002, "shots": 2000000, "errors": 529, "ler": 0.0002645, "us_per_shot": 94.09449408249998, "better_than_ref": 167, "worse_than_ref": 80, "mcnemar_p": 3.239410085811106e-08}
+{"decoder": "nat-single-correlated", "d": 9, "p": 0.002, "shots": 2000000, "errors": 593, "ler": 0.0002965, "us_per_shot": 47.147819699499955, "better_than_ref": 135, "worse_than_ref": 112, "mcnemar_p": 0.16142989032066107}
+{"decoder": "nat-evidence-correlated", "d": 9, "p": 0.002, "shots": 2000000, "errors": 548, "ler": 0.000274, "us_per_shot": 97.68057583549994, "better_than_ref": 141, "worse_than_ref": 73, "mcnemar_p": 3.8935995461318865e-06}

@@ -15,6 +15,7 @@ def all_decoders() -> dict[str, sinter.Decoder]:
         from surfdec.reference import BeliefMatchingDecoder
 
         out["beliefmatching"] = BeliefMatchingDecoder()
+        out["beliefmatching-noshortcut"] = BeliefMatchingDecoder(shortcut=False)
     except ImportError:
         pass
     from surfdec.native import MODES, NativeDecoder

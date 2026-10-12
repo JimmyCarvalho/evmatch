@@ -1,0 +1,15 @@
+{"decoder": "evmatch", "d": 5, "p": 0.003, "shots": 100000, "errors": 1096, "ler": 0.01096, "us_per_shot": 17.679581399993367, "better_than_ref": 0, "worse_than_ref": 0, "mcnemar_p": 1.0}
+{"decoder": "pymatching-correlated", "d": 5, "p": 0.003, "shots": 100000, "errors": 1187, "ler": 0.01187, "us_per_shot": 10.245013510007084, "better_than_ref": 162, "worse_than_ref": 253, "mcnemar_p": 9.22261989766643e-06}
+{"decoder": "beliefmatching", "d": 5, "p": 0.003, "shots": 100000, "errors": 1132, "ler": 0.01132, "us_per_shot": 2866.9489561900077, "better_than_ref": 273, "worse_than_ref": 309, "mcnemar_p": 0.14677260310883278}
+{"decoder": "evmatch", "d": 5, "p": 0.005, "shots": 100000, "errors": 4761, "ler": 0.04761, "us_per_shot": 31.347158780026803, "better_than_ref": 0, "worse_than_ref": 0, "mcnemar_p": 1.0}
+{"decoder": "pymatching-correlated", "d": 5, "p": 0.005, "shots": 100000, "errors": 5098, "ler": 0.05098, "us_per_shot": 18.05558939000548, "better_than_ref": 692, "worse_than_ref": 1029, "mcnemar_p": 4.473093217976884e-16}
+{"decoder": "beliefmatching", "d": 5, "p": 0.005, "shots": 100000, "errors": 4696, "ler": 0.04696, "us_per_shot": 4999.666265750029, "better_than_ref": 1129, "worse_than_ref": 1064, "mcnemar_p": 0.17171760177678427}
+{"decoder": "evmatch", "d": 7, "p": 0.003, "shots": 50000, "errors": 290, "ler": 0.0058, "us_per_shot": 59.01298594011678, "better_than_ref": 0, "worse_than_ref": 0, "mcnemar_p": 1.0}
+{"decoder": "pymatching-correlated", "d": 7, "p": 0.003, "shots": 50000, "errors": 326, "ler": 0.00652, "us_per_shot": 36.19285426002534, "better_than_ref": 50, "worse_than_ref": 86, "mcnemar_p": 0.002558734899629917}
+{"decoder": "beliefmatching", "d": 7, "p": 0.003, "shots": 50000, "errors": 309, "ler": 0.00618, "us_per_shot": 17226.817962240057, "better_than_ref": 110, "worse_than_ref": 129, "mcnemar_p": 0.24423531796408351}
+{"decoder": "evmatch", "d": 7, "p": 0.005, "shots": 50000, "errors": 2148, "ler": 0.04296, "us_per_shot": 109.96213017997434, "better_than_ref": 0, "worse_than_ref": 0, "mcnemar_p": 1.0}
+{"decoder": "pymatching-correlated", "d": 7, "p": 0.005, "shots": 50000, "errors": 2391, "ler": 0.04782, "us_per_shot": 66.28946343987991, "better_than_ref": 396, "worse_than_ref": 639, "mcnemar_p": 4.138948789097317e-14}
+{"decoder": "beliefmatching", "d": 7, "p": 0.005, "shots": 50000, "errors": 2180, "ler": 0.0436, "us_per_shot": 23422.55617797995, "better_than_ref": 678, "worse_than_ref": 710, "mcnemar_p": 0.4053704628311439}
+{"decoder": "evmatch", "d": 9, "p": 0.003, "shots": 25000, "errors": 70, "ler": 0.0028, "us_per_shot": 153.97000739998475, "better_than_ref": 0, "worse_than_ref": 0, "mcnemar_p": 1.0}
+{"decoder": "pymatching-correlated", "d": 9, "p": 0.003, "shots": 25000, "errors": 85, "ler": 0.0034, "us_per_shot": 95.93058731985366, "better_than_ref": 13, "worse_than_ref": 28, "mcnemar_p": 0.027533155829587517}
+{"decoder": "beliefmatching", "d": 9, "p": 0.003, "shots": 25000, "errors": 110, "ler": 0.0044, "us_per_shot": 52149.56562311997, "better_than_ref": 20, "worse_than_ref": 60, "mcnemar_p": 8.580559867049235e-06}

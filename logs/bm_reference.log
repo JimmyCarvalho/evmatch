@@ -1,0 +1,20 @@
+--- d=5 p=0.003 shots=100000 wall=75s
+evmatch                            LER=1.096e-02 (  1096)       17.7 us/shot  better=    0 worse=    0  p=1
+pymatching-correlated              LER=1.187e-02 (  1187)       10.2 us/shot  better=  162 worse=  253  p=9.2e-06
+beliefmatching                     LER=1.132e-02 (  1132)     2866.9 us/shot  better=  273 worse=  309  p=0.15
+--- d=5 p=0.005 shots=100000 wall=129s
+evmatch                            LER=4.761e-02 (  4761)       31.3 us/shot  better=    0 worse=    0  p=1
+pymatching-correlated              LER=5.098e-02 (  5098)       18.1 us/shot  better=  692 worse= 1029  p=4.5e-16
+beliefmatching                     LER=4.696e-02 (  4696)     4999.7 us/shot  better= 1129 worse= 1064  p=0.17
+--- d=7 p=0.003 shots=50000 wall=224s
+evmatch                            LER=5.800e-03 (   290)       59.0 us/shot  better=    0 worse=    0  p=1
+pymatching-correlated              LER=6.520e-03 (   326)       36.2 us/shot  better=   50 worse=   86  p=0.0026
+beliefmatching                     LER=6.180e-03 (   309)    17226.8 us/shot  better=  110 worse=  129  p=0.24
+--- d=7 p=0.005 shots=50000 wall=302s
+evmatch                            LER=4.296e-02 (  2148)      110.0 us/shot  better=    0 worse=    0  p=1
+pymatching-correlated              LER=4.782e-02 (  2391)       66.3 us/shot  better=  396 worse=  639  p=4.1e-14
+beliefmatching                     LER=4.360e-02 (  2180)    23422.6 us/shot  better=  678 worse=  710  p=0.41
+--- d=9 p=0.003 shots=25000 wall=344s
+evmatch                            LER=2.800e-03 (    70)      154.0 us/shot  better=    0 worse=    0  p=1
+pymatching-correlated              LER=3.400e-03 (    85)       95.9 us/shot  better=   13 worse=   28  p=0.028
+beliefmatching                     LER=4.400e-03 (   110)    52149.6 us/shot  better=   20 worse=   60  p=8.6e-06
