@@ -96,12 +96,17 @@ correlated PyMatching.
 
 ## Install
 
+Prebuilt wheels (Linux x86_64, macOS arm64/x86_64, Windows; CPython 3.10–3.13)
+are attached to the [releases](https://github.com/JimmyCarvalho/evmatch/releases):
+download the one for your platform and `pip install` it. Or build from source
+(needs a C++20 compiler):
+
 ```sh
 pip install git+https://github.com/JimmyCarvalho/evmatch
 ```
 
-A C++20 compiler is needed until wheels are on PyPI. The only runtime
-dependencies are numpy, stim and sinter.
+The only runtime dependencies are numpy, stim and sinter. PyPI publication is
+pending (`pip install evmatch` will work once it is published).
 
 ## Use
 
@@ -169,6 +174,14 @@ including prototypes and dead ends, is in `bench/proto.py` and `logs/`.
   errors at d = 9.
 - **Timing:** single-machine, single-threaded measurements; ratios are more
   meaningful than absolute times.
+
+## Releasing
+
+Pushing a tag `vX.Y.Z` builds the wheels and the sdist and attaches them to a
+GitHub release. To also upload to PyPI: register a trusted publisher on
+pypi.org (project `evmatch`, owner `JimmyCarvalho`, repository `evmatch`,
+workflow `wheels.yml`, environment `pypi`), set the repository variable
+`PYPI_PUBLISH` to `true`, and re-run the workflow for the tag.
 
 ## License and credits
 

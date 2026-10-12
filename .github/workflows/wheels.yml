@@ -41,9 +41,27 @@ jobs:
         with:
           name: sdist
           path: dist/*.tar.gz
-  publish:
-    # Needs a PyPI "trusted publisher" for this repository and workflow (pypi.org > project > publishing).
+  release:
+    # On a version tag, attach the wheels and the sdist to a GitHub release.
     if: startsWith(github.ref, 'refs/tags/v')
+    needs: [wheels, sdist]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: dist
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*
+          generate_release_notes: true
+  publish:
+    # PyPI upload via trusted publishing. Off until the repository variable
+    # PYPI_PUBLISH is "true" and a trusted publisher is registered on pypi.org
+    # (owner JimmyCarvalho, repository evmatch, workflow wheels.yml, environment pypi).
+    if: startsWith(github.ref, 'refs/tags/v') && vars.PYPI_PUBLISH == 'true'
     needs: [wheels, sdist]
     runs-on: ubuntu-latest
     environment: pypi
