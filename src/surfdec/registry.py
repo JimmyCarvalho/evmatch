@@ -19,6 +19,7 @@ def all_decoders() -> dict[str, sinter.Decoder]:
         pass
     from surfdec.native import MODES, NativeDecoder
 
+    out["evmatch"] = NativeDecoder("evidence-both")
     for mode in MODES:
         out[f"nat-{mode}"] = NativeDecoder(mode)
         out[f"nat-{mode}-first"] = NativeDecoder(mode, decomposition="first")
