@@ -14,6 +14,7 @@ MODES = {
     "evidence": 2,
     "evidence-correlated": 3,
     "evidence-both": 4,
+    "single-correlated": 5,
 }
 
 

@@ -1,0 +1,34 @@
+--- d=5 p=0.005 shots=400000 wall=18s
+pymatching-correlated              LER=5.193e-02 ( 20773)       18.0 us/shot  better=    0 worse=    0  p=1
+nat-evidence-correlated            LER=4.863e-02 ( 19450)       32.8 us/shot  better= 3762 worse= 2439  p=1e-63
+nat-evidence-both                  LER=4.852e-02 ( 19410)       32.9 us/shot  better= 4100 worse= 2737  p=2.3e-61
+nat-evidence-correlated-po         LER=4.866e-02 ( 19465)       37.3 us/shot  better= 3745 worse= 2437  p=1.7e-62
+nat-evidence-both-po               LER=4.856e-02 ( 19424)       40.3 us/shot  better= 4083 worse= 2734  p=2.6e-60
+--- d=7 p=0.003 shots=400000 wall=40s
+pymatching-correlated              LER=6.293e-03 (  2517)       33.6 us/shot  better=    0 worse=    0  p=1
+pymatching                         LER=9.878e-03 (  3951)       13.1 us/shot  better=  793 worse= 2227  p=5.3e-156
+nat-evidence-correlated            LER=5.687e-03 (  2275)       64.6 us/shot  better=  578 worse=  336  p=1.1e-15
+nat-evidence-both                  LER=5.575e-03 (  2230)       62.4 us/shot  better=  672 worse=  385  p=8.7e-19
+nat-evidence-correlated-po         LER=5.695e-03 (  2278)       76.8 us/shot  better=  574 worse=  335  p=2e-15
+nat-evidence-both-po               LER=5.590e-03 (  2236)       75.2 us/shot  better=  667 worse=  386  p=4e-18
+--- d=7 p=0.005 shots=400000 wall=67s
+pymatching-correlated              LER=4.654e-02 ( 18615)       65.3 us/shot  better=    0 worse=    0  p=1
+pymatching                         LER=6.235e-02 ( 24939)       25.0 us/shot  better= 5550 worse=11874  p=0
+nat-evidence-correlated            LER=4.322e-02 ( 17286)      114.8 us/shot  better= 4113 worse= 2784  p=6.7e-58
+nat-evidence-both                  LER=4.282e-02 ( 17127)      117.8 us/shot  better= 4762 worse= 3274  p=3.8e-62
+nat-evidence-correlated-po         LER=4.327e-02 ( 17309)      135.4 us/shot  better= 4088 worse= 2782  p=3.5e-56
+nat-evidence-both-po               LER=4.288e-02 ( 17154)      137.1 us/shot  better= 4741 worse= 3280  p=4.5e-60
+--- d=9 p=0.003 shots=400000 wall=108s
+pymatching-correlated              LER=3.025e-03 (  1210)       80.7 us/shot  better=    0 worse=    0  p=1
+pymatching                         LER=6.043e-03 (  2417)       28.4 us/shot  better=  406 worse= 1613  p=1.2e-169
+nat-evidence-correlated            LER=2.635e-03 (  1054)      166.8 us/shot  better=  323 worse=  167  p=1.6e-12
+nat-evidence-both                  LER=2.525e-03 (  1010)      167.9 us/shot  better=  398 worse=  198  p=1.9e-16
+nat-evidence-correlated-po         LER=2.628e-03 (  1051)      209.8 us/shot  better=  324 worse=  165  p=5.7e-13
+nat-evidence-both-po               LER=2.535e-03 (  1014)      202.9 us/shot  better=  393 worse=  197  p=5.4e-16
+--- d=9 p=0.005 shots=400000 wall=183s
+pymatching-correlated              LER=4.238e-02 ( 16950)      170.3 us/shot  better=    0 worse=    0  p=1
+pymatching                         LER=6.283e-02 ( 25130)       62.6 us/shot  better= 6095 worse=14275  p=0
+nat-evidence-correlated            LER=3.816e-02 ( 15263)      315.0 us/shot  better= 4379 worse= 2692  p=2.9e-90
+nat-evidence-both                  LER=3.757e-02 ( 15029)      316.8 us/shot  better= 5215 worse= 3294  p=4.9e-97
+nat-evidence-correlated-po         LER=3.825e-02 ( 15302)      370.6 us/shot  better= 4345 worse= 2697  p=1.5e-86
+nat-evidence-both-po               LER=3.766e-02 ( 15066)      374.2 us/shot  better= 5185 worse= 3301  p=1.3e-93

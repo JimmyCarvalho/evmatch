@@ -150,6 +150,8 @@ enum Mode : int {
     EVIDENCE_1 = 2,     // one pass, evidence-conditioned weights
     EVIDENCE_CORR = 3,  // pass 1 full weights; pass 2 evidence-conditioned + correlations
     EVIDENCE_BOTH = 4,  // both passes evidence-conditioned; pass 2 adds correlations
+    SINGLE_CORR = 5,    // ablation: both passes on the single-component graph, no evidence;
+                        // pass 2 adds correlations (first pass without hyperedges, as in Harmony)
 };
 
 class Decoder {
@@ -310,6 +312,13 @@ class Decoder {
             case EVIDENCE_CORR: {
                 decode_to_edges(full->mwpm, dets, full->search_neighbor_edge, scratch, path);
                 apply_evidence(*single, dets, false);
+                apply_implied(*single, false);
+                auto r = decode_obs(single->mwpm, dets);
+                single->undo();
+                return r;
+            }
+            case SINGLE_CORR: {
+                decode_to_edges(single->mwpm, dets, single->search_neighbor_edge, scratch, path);
                 apply_implied(*single, false);
                 auto r = decode_obs(single->mwpm, dets);
                 single->undo();
