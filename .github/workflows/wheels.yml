@@ -1,7 +1,11 @@
 name: wheels
 on:
   push:
-    tags: ["v*"]
+    tags: ["v*"]  # publishes (path filters do not apply to tag pushes)
+    branches: [main]
+    paths: ["csrc/**", "setup.py", "pyproject.toml", "MANIFEST.in", ".github/workflows/wheels.yml"]
+  pull_request:
+    paths: ["csrc/**", "setup.py", "pyproject.toml", "MANIFEST.in", ".github/workflows/wheels.yml"]
   workflow_dispatch:
 jobs:
   wheels:
