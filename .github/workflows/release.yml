@@ -1,9 +1,9 @@
 name: release
 # Push a branch release/vX.Y.Z (or a tag vX.Y.Z): builds wheels and the sdist,
 # creates the tag and a GitHub release with them attached, and uploads to PyPI
-# when the repository variable PYPI_PUBLISH is "true" (trusted publisher on
-# pypi.org: owner JimmyCarvalho, repository evmatch, workflow release.yml,
-# environment pypi).
+# by trusted publishing (pypi.org pending publisher: project evmatch, owner
+# JimmyCarvalho, repository evmatch, workflow release.yml, environment pypi).
+# Until that publisher exists the upload fails without failing the release.
 on:
   push:
     branches: ["release/**"]
@@ -33,8 +33,8 @@ jobs:
           files: dist/*
           generate_release_notes: true
   publish:
-    if: vars.PYPI_PUBLISH == 'true'
     needs: build
+    continue-on-error: true
     runs-on: ubuntu-latest
     environment: pypi
     permissions:

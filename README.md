@@ -179,10 +179,10 @@ including prototypes and dead ends, is in `bench/proto.py` and `logs/`.
 
 Pushing a branch `release/vX.Y.Z` (or a tag `vX.Y.Z`) builds the wheels and
 the sdist, creates the tag and attaches them to a GitHub release
-(`.github/workflows/release.yml`). To also upload to PyPI: register a trusted
-publisher on pypi.org (project `evmatch`, owner `JimmyCarvalho`, repository
-`evmatch`, workflow `release.yml`, environment `pypi`), set the repository
-variable `PYPI_PUBLISH` to `true`, and re-run the release workflow.
+(`.github/workflows/release.yml`) and uploads to PyPI by trusted publishing,
+which needs a pending publisher on pypi.org (project `evmatch`, owner
+`JimmyCarvalho`, repository `evmatch`, workflow `release.yml`, environment
+`pypi`). Without it the upload step fails and the GitHub release is still made.
 
 ## License and credits
 
