@@ -1,5 +1,3 @@
-# DRAFT — not posted. Proposed issue for oscarhiggott/PyMatching
-
 **Title:** Correlated decoding: syndrome-gated base weights give 7–17% fewer logical errors (SI1000, d=5–9) at ~2x the cost
 
 Hi! Thanks for PyMatching and for shipping correlated matching in 2.3.
