@@ -209,6 +209,8 @@ PROTOS = {
     "proto-corr-neg-a30": dict(corr_pass=True, neg="touch", neg_alpha=0.3),
     "proto-corr-neg-all": dict(corr_pass=True, neg="touch", touch_rule="all"),
     "proto-bm20": dict(bp_iters=20),
+    "proto-bm20-serial": dict(bp_iters=20, bp_schedule="serial"),
+    "proto-bm20-ms": dict(bp_iters=20, bp_method="minimum_sum", ms_scaling=0.625),
     "proto-bm20-noshort": dict(bp_iters=20, bp_converge_shortcut=False),
     "proto-bm1": dict(bp_iters=1, bp_converge_shortcut=False),
     "proto-bm2": dict(bp_iters=2, bp_converge_shortcut=False),

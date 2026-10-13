@@ -39,3 +39,11 @@ proto-bm20                         LER=4.280e-03 (   107)    45150.1 us/shot  be
 evmatch                            LER=3.748e-02 (   937)      290.4 us/shot  better=    0 worse=    0  p=1
 pymatching-correlated              LER=4.344e-02 (  1086)      170.9 us/shot  better=  190 worse=  339  p=9.4e-11
 proto-bm20                         LER=3.888e-02 (   972)    48581.7 us/shot  better=  358 worse=  393  p=0.21
+--- d=9 p=0.003 shots=25000 wall=95s
+evmatch                            LER=2.800e-03 (    70)      148.5 us/shot  better=    0 worse=    0  p=1
+pymatching-correlated              LER=3.400e-03 (    85)       88.7 us/shot  better=   13 worse=   28  p=0.028
+proto-bm20-ms                      LER=4.160e-03 (   104)    13493.4 us/shot  better=   23 worse=   57  p=0.00018
+--- d=9 p=0.003 shots=25000 wall=3803s
+evmatch                            LER=2.800e-03 (    70)      142.4 us/shot  better=    0 worse=    0  p=1
+pymatching-correlated              LER=3.400e-03 (    85)       88.7 us/shot  better=   13 worse=   28  p=0.028
+proto-bm20-serial                  LER=4.120e-03 (   103)   605026.3 us/shot  better=   21 worse=   54  p=0.00018

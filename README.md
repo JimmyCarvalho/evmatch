@@ -80,8 +80,11 @@ returning BP's own solution when BP converges is not the cause: disabling it
 gives the same 110 errors, and 30 BP iterations (as in the belief-matching
 paper) give 104. An independent implementation (`proto-bm20` in
 `bench/proto.py`: one decomposition per symptom, log-odds weights) gives 107
-here and 972 at p = 0.5%, so this is a property of belief-matching with
-parallel BP on this circuit, not of the package.
+here and 972 at p = 0.5%; min-sum BP (scaling 0.625) gives 104 and a serial BP
+schedule gives 103. Five belief-matching variants thus land at 103–110 errors
+where correlated PyMatching makes 85 and evmatch 70: on this circuit
+belief-matching does not beat correlated matching at d = 9, p = 0.3%, and
+evmatch beats all of them.
 
 **Where the gain comes from** (paired, d = 9, p = 0.3%, 400k shots):
 

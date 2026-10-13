@@ -1,0 +1,6 @@
+{"decoder": "evmatch", "d": 9, "p": 0.003, "shots": 25000, "errors": 70, "ler": 0.0028, "us_per_shot": 148.45498015999794, "better_than_ref": 0, "worse_than_ref": 0, "mcnemar_p": 1.0}
+{"decoder": "pymatching-correlated", "d": 9, "p": 0.003, "shots": 25000, "errors": 85, "ler": 0.0034, "us_per_shot": 88.69104808000031, "better_than_ref": 13, "worse_than_ref": 28, "mcnemar_p": 0.027533155829587517}
+{"decoder": "proto-bm20-ms", "d": 9, "p": 0.003, "shots": 25000, "errors": 104, "ler": 0.00416, "us_per_shot": 13493.438257559996, "better_than_ref": 23, "worse_than_ref": 57, "mcnemar_p": 0.0001831165641297476}
+{"decoder": "evmatch", "d": 9, "p": 0.003, "shots": 25000, "errors": 70, "ler": 0.0028, "us_per_shot": 142.42952860000742, "better_than_ref": 0, "worse_than_ref": 0, "mcnemar_p": 1.0}
+{"decoder": "pymatching-correlated", "d": 9, "p": 0.003, "shots": 25000, "errors": 85, "ler": 0.0034, "us_per_shot": 88.74262843999304, "better_than_ref": 13, "worse_than_ref": 28, "mcnemar_p": 0.027533155829587517}
+{"decoder": "proto-bm20-serial", "d": 9, "p": 0.003, "shots": 25000, "errors": 103, "ler": 0.00412, "us_per_shot": 605026.26789964, "better_than_ref": 21, "worse_than_ref": 54, "mcnemar_p": 0.00017630923003028717}
