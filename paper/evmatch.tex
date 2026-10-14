@@ -19,7 +19,8 @@ It costs $O(\#\text{detection events})$ per shot, and we combine it with the
 standard two-pass correlated reweighting. For the rotated surface-code memory
 under SI1000 noise at distances 5, 7 and 9 and physical error rates
 0.2--0.5\%, the resulting decoder makes 7--17\% fewer logical errors than the
-correlated mode of PyMatching~2. The advantage grows with distance. In paired
+correlated mode of PyMatching~2. The advantage grows with distance and holds on circuits not used during development: on Stim's stock
+circuit with uniform depolarizing noise ($d\le9$) and under SI1000 at $d=11$ the reduction is 11--33\%. In paired
 tests it is statistically indistinguishable from belief-matching at $d=5,7$
 and better at $d=9$, while running at 4.6--7.2$\times$ the time of
 uncorrelated PyMatching (1.7--2.2$\times$ its correlated mode). The decoder
@@ -224,6 +225,34 @@ log-odds weights (107 errors; 972 at $p=0.5\%$), with min-sum BP (104) and
 with a serial BP schedule (103). Belief-matching with
 parallel BP therefore does not dominate correlated matching on this circuit,
 while evmatch matches or beats both at every point we measured. At $d=9$, $p=0.5\%$, the counts were 937 vs 971 ($p=0.23$).
+
+\paragraph{Other circuits.} All tuning was done on the SI1000 circuit above. Table~\ref{tab:robust} repeats the
+paired comparison on circuits that were never used during development: Stim's stock \texttt{rotated\_memory\_z}
+and \texttt{rotated\_memory\_x} with plain CX gates and uniform depolarizing circuit noise (probability $p$ after
+every Clifford, on data qubits before each round, before measurements and after resets), and the SI1000 circuit
+at $d=11$. Every point favours evmatch, the reduction grows with distance, and the cost stays at 1.7--2.0$\times$
+correlated PyMatching.
+
+\begin{table}[t]
+\caption{Paired comparison with correlated PyMatching on circuits not used during development
+(errors on identical shots; $\pm2\sigma$ from the discordant shots).}
+\label{tab:robust}
+\begin{tabular}{llrrrl}
+\toprule
+circuit & $d$, $p$ & shots & PM corr. & evmatch & ratio \\
+\midrule
+stock, $Z$ & 5, 0.5\% & 200k & 2202 & 1962 & $0.89\pm0.03$ \\
+stock, $Z$ & 5, 0.3\% & 400k & 955 & 852 & $0.89\pm0.04$ \\
+stock, $Z$ & 7, 0.5\% & 200k & 1182 & 1016 & $0.86\pm0.04$ \\
+stock, $Z$ & 7, 0.3\% & 400k & 271 & 227 & $0.84\pm0.09$ \\
+stock, $Z$ & 9, 0.5\% & 200k & 656 & 530 & $0.81\pm0.06$ \\
+stock, $Z$ & 9, 0.3\% & 400k & 82 & 55 & $0.67\pm0.15$ \\
+stock, $X$ & 7, 0.5\% & 200k & 1324 & 1088 & $0.82\pm0.04$ \\
+SI1000 & 11, 0.3\% & 400k & 546 & 424 & $0.78\pm0.06$ \\
+SI1000 & 11, 0.5\% & 200k & 7508 & 6489 & $0.86\pm0.02$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{Related work}
 

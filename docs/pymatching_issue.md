@@ -1,4 +1,4 @@
-**Title:** Correlated decoding: syndrome-gated base weights give 7–17% fewer logical errors (SI1000, d=5–9) at ~2x the cost
+**Title:** Correlated decoding: syndrome-gated base weights give 7–33% fewer logical errors (d=5–11) at ~2x the cost
 
 Hi! Thanks for PyMatching and for shipping correlated matching in 2.3.
 
@@ -45,6 +45,19 @@ identical shots (McNemar test on discordant shots):
 
 For reference, `enable_correlations=True` itself is 2.5–3.3x uncorrelated on
 the same machine.
+
+The gain is not specific to that circuit. On Stim's stock `surface_code:rotated_memory_z` (plain CX gates,
+uniform depolarizing circuit noise p on every location), paired the same way:
+
+| d | p | shots | ratio of logical errors (±2σ) | McNemar p |
+|---|---|---|---|---|
+| 5 | 0.5% | 200k | 0.891 ± 0.028 | 7e-15 |
+| 7 | 0.5% | 200k | 0.860 ± 0.041 | 5e-12 |
+| 9 | 0.5% | 200k | 0.808 ± 0.060 | 1e-10 |
+| 9 | 0.3% | 400k | 0.671 ± 0.152 | 1e-5 |
+
+In the X basis (d = 7, p = 0.5%) the ratio is 0.822 ± 0.039, and on the SI1000 circuit at d = 11 it is
+0.777 ± 0.063 (p = 0.3%) and 0.864 ± 0.017 (p = 0.5%). The full table is in `results/robustness.md`.
 
 At d = 9, p = 0.3%, an ablation separates the pieces:
 

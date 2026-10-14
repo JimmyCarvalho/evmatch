@@ -95,6 +95,12 @@ evmatch beats all of them.
 | + first pass without hyperedges, no evidence (Harmony-style) | 1141 |
 | + evidence gate in both passes (**evmatch**) | 1010 |
 
+**Other circuits.** On circuits not used during development (`bench/robust.py`, [results/robustness.md](results/robustness.md)) the
+gain holds and grows: on Stim's stock `rotated_memory_z` with plain CX gates and uniform depolarizing circuit noise the
+ratio to correlated PyMatching is 0.89 (d = 5), 0.84–0.86 (d = 7) and 0.67–0.81 (d = 9) at p = 0.3–0.5%; in the X basis
+(d = 7, p = 0.5%) it is 0.82; and on the SI1000 circuit at d = 11 it is 0.78 (p = 0.3%) and 0.86 (p = 0.5%). Every point
+is significant (McNemar p ≤ 3×10⁻⁴), at 1.7–2.0× the time of correlated PyMatching.
+
 Times are single-threaded, on a cloud vCPU, for the same pre-sampled shots
 (`bench/timing.py`, raw data in [results/timing.csv](results/timing.csv)).
 Over the whole grid evmatch runs at 4.6–7.2× PyMatching and 1.7–2.2×
@@ -171,8 +177,8 @@ including prototypes and dead ends, is in `bench/proto.py` and `logs/`.
 
 ## Limitations
 
-- **Coverage:** only the rotated surface-code memory, Z basis, d ≤ 9 and
-  SI1000 noise have been tested. Other codes and noise models should work
+- **Coverage:** only the rotated surface-code memory has been tested: SI1000 noise at d ≤ 11, and uniform
+  depolarizing circuit noise on Stim's stock circuit at d ≤ 9 (Z basis, plus X basis at d = 7). Other codes and noise models should work
   (the method only reads the DEM) but have not been measured.
 - **Circuit:** it is not Google's hardware circuit; small differences in the
   schedule change absolute numbers.
